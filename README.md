@@ -1,7 +1,7 @@
 # Rails 6 Devise JWT API
 This is the initial project template. It is an API Rails application with devise and JWT enabled.
 
-##TODO Enable and implement pundit
+## TODO Enable and implement pundit
 
 + Clone repo (git clone https://github.com/free-samples/rails6-devise-jwt-api.git)
 + cd rails6-devise-jwt-api
@@ -20,14 +20,14 @@ Depending on the mysql version you have installed you may have to modify the way
 gem install mysql2 -v '0.4.10' -- --with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include
 
 
-##Deployment
+## Deployment
 
 ```
 cap staging deploy
 ```
 
 
-##Console in other environment
+## Console in other environment
 ```
 bundle exec rails console staging
 ```
