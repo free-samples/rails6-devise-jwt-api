@@ -296,3 +296,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/vim,ruby,rails,macos,linux,emacs,windows,sublimetext,visualstudiocode
 /public/uploads
 /config/master.key
+db-data
