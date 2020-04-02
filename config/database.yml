@@ -5,32 +5,20 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  username: root
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: 12345678
+  pool: 5
 
 development:
   <<: *default
-  username: root
-  database: rails6_api_development
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
-  # database: db/test.sqlite3
-  database: <%= ENV.fetch("TEST_DB") { 'rails6_api_test' } %>
-  username: <%= ENV.fetch("TEST_USER") { 'root' } %>
-  password: <%= ENV.fetch("TEST_PASSWD") { '' } %>
-
-staging:
-  <<: *default
-  database: rails6_api_test
-  username: rails6_api_staging
+  database: jwt_development
+  username: devise_jwt_poc
   password: 12345678
 
-production:
+
+test:
   <<: *default
-  database: rails6_api_prod
+  database: myapp_test
