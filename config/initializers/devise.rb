@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'c4a5d7823208949d50c7c3638976c3f105c3653a3a9d7900f2c829b97db6b81ddf8121e93f006fdfb37e554e2e771cc4e7fdafec0585dc2138631476469ec922'
-  config.secret_key = 'bf09caccd41276148bfd93464bb83b83c38058c985718fd964ebfb00fb30b3dbb3387c5b22ed11cc9a2cec349e91df0c9820b32143470092157c71f9f8fbf50e'
+  # config.secret_key = 'bf09caccd41276148bfd93464bb83b83c38058c985718fd964ebfb00fb30b3dbb3387c5b22ed11cc9a2cec349e91df0c9820b32143470092157c71f9f8fbf50e'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -302,9 +302,9 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
   config.jwt do |jwt|
-    # jwt.secret = Rails.application.secrets.devise_jwt_secret_key
+    jwt.secret = Rails.application.secrets.devise_jwt_secret_key
     # jwt.secret = '43f983562ae8f30e31f354c05650cd3140ad1cd770ef72f495841e6e8b2ce1e369599a03e1e3596624b172e0107b1d992ad8be3ba99262c9d85260a52f21401b'
-    jwt.secret = RailsApiDeviseJwt::Application.credentials.devise_jwt_secret_key
+    # jwt.secret = RailsApiDeviseJwt::Application.credentials.devise_jwt_secret_key
     jwt.dispatch_requests = [
         ['POST', %r{^/users/sign_in$}],
         ['GET', %r{^/$}]
