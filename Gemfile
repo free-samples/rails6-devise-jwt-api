@@ -10,8 +10,8 @@ end
 # gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
 gem 'rails', '~> 6.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '1.3.9'
-gem 'mysql2', '~> 0.5.2'
+#gem 'sqlite3', '1.3.9'
+gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
+# gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
