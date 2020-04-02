@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_02_11_053050) do
 
-  create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "destinations", force: :cascade do |t|
     t.bigint "status_id"
     t.string "name", default: "", null: false
     t.string "description", default: "", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_053050) do
     t.index ["status_id"], name: "index_destinations_on_status_id"
   end
 
-  create_table "jwt_blacklist", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "jwt_blacklist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
     t.datetime "created_at", null: false
@@ -29,14 +32,14 @@ ActiveRecord::Schema.define(version: 2019_02_11_053050) do
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
   end
 
-  create_table "status_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "status_types", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "statuses", force: :cascade do |t|
     t.bigint "status_type_id"
     t.string "name"
     t.text "description"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_053050) do
     t.index ["status_type_id"], name: "index_statuses_on_status_type_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.bigint "status_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
